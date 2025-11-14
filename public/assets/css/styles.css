@@ -1,0 +1,458 @@
+/* Reset básico de CSS */
+/* cores padão site
+Azul um pouco mais escuro menu:     rgb(15, 20, 32)
+Azul fundo site:                    rgb(18, 24, 38)
+Azul claro textos:                  rgb(46, 224, 226)
+Rosa claro botoes e icones:         rgb(192, 73, 196) 
+Branco para textos tambem:          rgb(250, 250, 250)
+Preto para detalhes                 rgb(0, 0, 0)
+
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Garante que padding e border sejam incluídos no tamanho total do elemento */
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  font-weight: normal; /* Garante que títulos não sejam negrito por padrão */
+}
+
+ol, ul {
+  list-style: none; /* Remove marcadores de lista */
+}
+
+img {
+  max-width: 100%; /* Torna as imagens responsivas */
+  height: auto;
+}
+
+.cor-azul-escuro-1{
+    color: rgb(15, 20, 32);
+}
+
+.cor-azul-escuro-2{
+    color: rgb(18, 24, 38);
+}
+
+.cor-azul-claro{
+    color: rgb(46, 224, 226);
+}
+
+.cor-rosa{
+    color: rgb(192, 73, 196);
+}
+
+.cor-branco{
+    color: rgb(250, 250, 250);
+}
+
+/*Configs padroes*/
+
+body{
+    background-color: rgb(18, 24, 38);
+}
+
+.body{
+    background-image: url("../img/img_fundo_sobre.png");
+    background-repeat: no-repeat;
+    background-size: 400px;
+    background-position: right; 
+    
+}
+
+#logo{
+    width: 50px;
+    
+}
+
+#logo-site{
+    margin-left: 80px;
+    position: absolute;
+    left: 0%;
+}
+
+#slider{
+    margin: 0px auto 100px auto;
+    width: 800px;
+    height: 400px;
+    overflow: hidden;
+}
+
+#slides{
+    width: 500%;
+    height: 400px;
+    display: flex;
+}
+
+#slides input {
+    display: none;
+}
+
+.img-slide{
+    width: 25%;
+    position: relative;
+    transition: 2s;
+    cursor: pointer;
+}
+
+.img-slide img {
+    
+    width: 800px;
+    height: 400px;
+}
+
+.img-slide-config{
+    border-radius: 30px;
+}
+
+.texto-slide{
+    font-size: 30px;
+    position: absolute;
+    top: 330px;
+    margin-left: 30px;
+    
+}
+
+.escolher-slide{
+    position: absolute;
+    width: 800px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.escolher-slide-botao{
+    border: 2px solid rgb(46, 224, 226);
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transform: 1s;
+
+}
+
+.escolher-slide-botao:not(:last-child){
+    margin-right: 40px;
+}
+
+.escolher-slide-botao:hover{
+    background-color: rgb(46, 224, 226);
+}
+
+#radio-1:checked ~ .first{
+    margin-left: 0%;
+}
+
+#radio-2:checked ~ .first{
+    margin-left: -25%;
+}
+
+#radio-3:checked ~ .first{
+    margin-left: -50%;
+}
+
+#radio-4:checked ~ .first{
+    margin-left: -75%;
+}
+
+#radio-5:checked ~ .first{
+    margin-left: -100%;
+}
+
+.mudar-slide-auto div{
+    border: 2px solid rgb(46, 224, 226);
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.mudar-slide-auto div:not(:last-child){
+    margin-right: 40px;
+}
+
+#radio-1:checked ~ .mudar-slide-auto .botao-auto-1{
+    background-color: rgb(46, 224, 226);
+}
+
+#radio-2:checked ~ .mudar-slide-auto .botao-auto-2{
+    background-color: rgb(46, 224, 226);
+}
+
+#radio-3:checked ~ .mudar-slide-auto .botao-auto-3{
+    background-color: rgb(46, 224, 226);
+}
+
+#radio-4:checked ~ .mudar-slide-auto .botao-auto-4{
+    background-color: rgb(46, 224, 226);
+}
+
+#radio-5:checked ~ .mudar-slide-auto .botao-auto-5{
+    background-color: rgb(46, 224, 226);
+}
+
+.mudar-slide-auto{
+    position: absolute;
+    width: 800px;
+    margin-top: 430px;
+    display: flex;
+    justify-content: center;
+}
+
+#assuntos{
+    margin: 10px 70px 10px 70px;
+    display: inline-flex;
+}
+
+.itens-assuntos{
+    background-color: rgb(20, 26, 40);
+    width: 19.7%;
+    display:grid;
+    margin: 10px;
+    border: 1px outset gray;
+    border-radius: 15px;
+}
+
+.img-assuntos{
+    border-radius: 15px;
+}
+
+.botao-assuntos{
+    background-color: rgb(46, 224, 226);
+    padding: 5px;
+    border-radius: 5px;
+    border: none; 
+    cursor: pointer;
+    width: 80px;
+    height: 25px;
+    margin: auto 10px 10px 10px;
+}
+.titulo-assuntos, .texto-assuntos{
+    margin: 10px;
+}
+
+.paginas{
+    padding: 20px;
+    text-decoration: none;
+    color: rgb(46, 224, 226);
+}
+
+#menu{
+
+    height: 70px;
+    padding: 10px;
+    background-color: rgb(15, 20, 32);
+    display: flex;
+    
+}
+
+#itens-desktop{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    position: relative;
+}
+
+#menu-desktop{
+    display: flex;
+}
+
+#open-menu-lista{
+    width: 30px;
+    cursor: pointer;
+    
+}
+
+#img-close-menu{
+    width: 30px;
+}
+
+#itens-mobile{
+    display: none;    
+}
+
+#apresentacao{
+    display: flex;
+    flex-direction: row;
+    margin: 0px 0px 0px 0px;
+}
+
+#apresentacao-conteudo{
+    display: flex;
+    margin: 40px 0px 40px 70px;
+}
+
+#container-resumo-conteudo{
+   margin: 20px 80px 20px 150px;     
+}
+
+#texto-apresentacao{
+    order: 1;
+    margin: 60px 80px 60px 80px;
+    
+}
+
+.titulo-inicio{
+    font-size: 40px;
+}
+
+.titulo-inicio-conteudo{
+    margin-bottom: 40px;
+    font-size: 40px;
+}
+
+#img-inicio{
+    margin: 20px 150px 20px 0px;
+    width: 580px;
+    height: 435;
+    border-radius: 100px;
+}
+
+#rodape{
+    margin: 80px 50px 20px 80px;
+}
+
+a:hover{
+    color: rgb(192, 73, 196)
+}
+
+.botao-assuntos:hover{
+    background-color: rgb(192, 73, 196)
+}
+
+#titulo-sobre{
+    margin: 60px 80px 60px 80px;
+}
+
+#texto-sobre{
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+#lista-sobre{
+    list-style:disc;
+    margin: 10px 20px 10px 60px;
+    font-size: 20px;
+}
+
+li::marker {
+    color: rgb(46, 224, 226);
+    font-size: 30px;
+}
+
+#lista-itens-sobre{
+    margin-top: 15px;
+}
+
+.texto-negrito{
+    font-weight:bold;
+}
+
+#itens-inicio-sobre{
+    display: flex;
+    align-items: center;
+       
+}
+
+#img-sobre{
+    order: 1;
+    width: 15%;
+    margin: 20px 50px 20px 0px; 
+}
+
+.texto-inicio-sobre{
+    order: 2;
+}
+
+#titulo-lista-sobre{
+    font-size: 30px;
+    margin: 20px 10px 20px 0px;
+}
+
+#temas{
+    margin: 10px 10px 40px 80px;
+    display: flex;
+
+}
+
+.divisao-paragrafos{
+    margin: 0px 80px 0px 0px;
+}
+
+.titulo-paragrafos{
+    margin: 30px 0px 30px 0px;
+    font-size: 30px;
+}
+
+.paragrafo{
+    font-size: 20px;    
+}
+
+#titulo-assuntos{
+    margin: 60px 80px 30px 80px;
+}
+
+.divisao-areas{
+    margin: 10px auto 20px 0px;
+}
+
+.itens-aluno{
+    display: flex;
+    justify-content: space-between;
+}
+
+.titulo-itens-aluno{
+    margin: 0px 0px 10px 0px;
+}
+
+.dado-aluno{
+    display: flex;
+    margin: 0px 0px 5px 0px;
+}
+
+/* Telas para moveis */
+@media (max-width: 1024px){
+
+    .menu-mobile{
+        overflow: hidden;
+        width: 0px;
+        height: 100dvh;
+        padding: 0rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: rgb(15, 20, 32);
+        flex-direction: column;
+        text-align: center;
+        transition: 0.3s;
+        
+    }   
+
+    .itens-lista-mobile {
+        padding: 8px;
+    }
+    
+    .menu-mobile li:first-child{
+        text-align: start;
+    }
+    
+    #close-menu-lista{
+        align-self: flex-start;
+        cursor: pointer;
+    }
+    
+    .menu-ativo{
+        width: 300px;
+        padding: 1rem;
+    }
+
+    #menu-desktop{
+        display: none;
+    }
+
+    #itens-mobile{
+        display: flex;    
+    }
+    
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All universo</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/app.js"></script>
+</head>
+    <body onload="menuPagina(), carregarDadosIndex()" id="body" class="body">
+
+        <header id="cabecalho">
+            <!--Sera substituido pelo codigo descrio na pasta ../js/app.js
+            na função menuPagina-->
+        </header>
+        
+        <main>
+            <div id="apresentacao">
+                <div id="texto-apresentacao">
+                    <h1 id="titulo-inicio-index-1" class="titulo-inicio cor-branco">
+                        DESVENDE OS MISTÉRIOS
+                    </h1>
+                    <h1 id="titulo-inicio-index-2" class="titulo-inicio cor-rosa">
+                        DO UNIVERSO
+                    </h1>
+                    <p id="texto-inicio" class="cor-branco">
+                        Aqui vamos explorar um pedaço desse nosso universo incrivel e maravilhoso.
+                    </p>
+                </div>
+            </div>
+
+            <div id="slider">
+
+                <div id="slides">
+                    <!--botoes para trocar slides-->
+                    <input type="radio" id="radio-1" name="botao-radio" checked>
+                    <input type="radio" id="radio-2" name="botao-radio">
+                    <input type="radio" id="radio-3" name="botao-radio">
+                    <input type="radio" id="radio-4" name="botao-radio">
+                    <input type="radio" id="radio-5" name="botao-radio">
+                    <!--Imagens que aparecerão no slide-->
+                    <div id="slide-1" class="img-slide first" >
+                        <img class="img-slide-config" src="../img/img_antes_universo.png" alt="imagem antes do universo">
+                        <p class="texto-slide cor-branco">ANTES DO UNIVERSO</p>
+                    </div>
+                    <div id="slide-2" class="img-slide">
+                        <img class="img-slide-config" src="../img/img_big_bang.png" alt="imagem antes do universo">
+                        <p class="texto-slide cor-branco">BIG BANG</p>
+                    </div>
+                    <div id="slide-3" class="img-slide">
+                        <img class="img-slide-config" src="../img/img_buraco_negro.png" alt="imagem antes do universo">
+                        <p class="texto-slide cor-branco">BURACO NEGRO</p>
+                    </div>
+                    <div id="slide-4" class="img-slide">
+                        <img class="img-slide-config" src="../img/img_via_lactea.png" alt="imagem antes do universo">
+                        <p class="texto-slide cor-branco">VIA LACTEA</p>
+                    </div>
+                    <div id="slide-5" class="img-slide">
+                        <img class="img-slide-config" src="../img/img_estrela.png" alt="imagem antes do universo">
+                        <p class="texto-slide cor-branco">ESTRELA</p>
+                    </div>
+
+                    <!--navegação slides-->
+                    <div class="mudar-slide-auto">
+                        <div class="botao-auto-1"></div>
+                        <div class="botao-auto-2"></div>
+                        <div class="botao-auto-3"></div>
+                        <div class="botao-auto-4"></div>
+                        <div class="botao-auto-5"></div>
+                    </div>
+
+                </div>
+
+                <div class="escolher-slide">
+                    <label class="escolher-slide-botao" for="radio-1"></label>
+                    <label class="escolher-slide-botao" for="radio-2"></label>
+                    <label class="escolher-slide-botao" for="radio-3"></label>
+                    <label class="escolher-slide-botao" for="radio-4"></label>
+                    <label class="escolher-slide-botao" for="radio-5"></label>
+
+                </div>
+
+            </div>
+
+            <div id="titulo-assuntos" class="divisao-areas">
+                <h2 class="cor-branco">EXPLORE MAIS</h2>
+                <h2 class="cor-rosa">SOBRE O UNIVERSO</h2>
+            </div>
+
+            <div id="assuntos">
+                <!--Sera substituido pelo codigo descrio na pasta ../js/app.js
+                na função carregarDadosIndex-->                 
+            </div>
+        </main>
+    
+        <footer id="rodape">
+            <div class="divisao-areas">
+                <h2 class="cor-branco"> INFORMAÇOES DO ALUNO </h2>
+            </div>
+            <div class="itens-aluno">
+                <div class="sobre-aluno">
+                    <h3 class="titulo-itens-aluno cor-rosa">SOBRE</h3>
+                    <p class="cor-branco">
+                        Site criado com intuito didático para a matéria de 
+                        Desenvolvimento de interfaces WEB (DIW).   
+                    </p>
+                </div>
+                <div class="dados-aluno">
+                    <h3 class="titulo-itens-aluno cor-rosa">AUTORIA</h3>
+                    <div class="dado-aluno cor-branco">
+                        <h4>Aluno: </h4>
+                        <p>Charles Henrique de Paula Santos</p>
+                    </div>
+                    <div class="dado-aluno cor-branco">
+                        <h4>Curso: </h4>
+                        <p>Engenharia de Software</p>
+                    </div>
+                    <div class="dado-aluno cor-branco">
+                        <h4>Turma: </h4>
+                        <p>Manhã</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
