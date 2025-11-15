@@ -5,7 +5,7 @@ let count = 1;
 // A URL para o seu arquivo JSON
 const URL_JSON = '/db/db.json';
 
-/* Função para imprimir dados na tela inicial/index */
+// Função para imprimir dados na tela inicial/index 
 async function carregarDadosIndex() {
     let assuntoContainer = document.getElementById('assuntos');
     let dadosAssuntosHTML = '';
@@ -53,7 +53,7 @@ async function carregarDadosIndex() {
     }
 }
 
-/*Função para exibir conteudo de acordo com o item que foi clicado*/ 
+//Função para exibir conteudo de acordo com o item que foi clicado
 async function exibirConteudo(pagClicada) {
     console.log("Página clicada:", pagClicada);
 
@@ -81,7 +81,7 @@ async function exibirConteudo(pagClicada) {
             return; 
         }
 
-        // Extração de variáveis (mais limpo com desestruturação)
+        // Extração de variáveis
         const imgCarregar = dadoCompleto.imagem;
         const resumoCarregar = dadoCompleto.resumo;
         const tituloCarregar = dadoCompleto.titulo;
@@ -90,7 +90,6 @@ async function exibirConteudo(pagClicada) {
         const tituloConteudo2Carregar = dadoCompleto.tituloConteudo2;
         const conteudo2Carregar = dadoCompleto.conteudo2;
 
-        // Geração da string HTML (dadosEnviar) - Estrutura Original Preservada
         let dadosEnviar = `
             <div id="apresentacao-conteudo">
                 <img id="img-inicio" src="${imgCarregar}" alt="Imagem de ${tituloCarregar}">
@@ -120,7 +119,7 @@ async function exibirConteudo(pagClicada) {
         window.location.href = 'conteudo.html';
         
     } catch (error) {
-        // Tratamento de erro caso o JSON não carregue
+        // caso o JSON não carregue
         console.error('Falha ao carregar o conteúdo para exibição:', error);
         alert('Não foi possível carregar os detalhes do conteúdo. Tente novamente.');
     }
