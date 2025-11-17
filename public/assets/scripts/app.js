@@ -153,6 +153,7 @@ function menuPagina(){
                     <ul id="menu-desktop">
                         <li class="itens-lista-desktop">
                             <a class="paginas" href="sobre.html">SOBRE</a>
+                            <a class="paginas" href="eventos.html">EVENTOS</a>
                         </li>
                     </ul>
                 </div>
@@ -165,6 +166,7 @@ function menuPagina(){
                     </li>
                     <li class="itens-lista-mobile">
                         <a class="paginas" href="sobre.html">SOBRE</a>
+                        <a class="paginas" href="eventos.html">EVENTOS</a>
                     </li>
                 </ul>
             </div>
@@ -186,16 +188,162 @@ setInterval( function(){
     proximaimg();
 }, 4000);
 
+//inserido o calendario de eventos na pagina eventos
+document.addEventListener('DOMContentLoaded', function () {
+
+    //URL da sua API: Usada para todas as operações CRUD
+    const API_BASE_URL = 'http://localhost:3000/eventos';
+
+    var calendarEl = document.getElementById('calendario-eventos');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+
+        // --- CONFIGURAÇÕES DO CALENDÁRIO (As suas configurações) ---
+        headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+
+        //definir idioma do calendario
+        locale: "pt-BR",
+
+        //definir data inicial do calendario
+        initialDate: '2025-11-16',
+
+        //permitir clicar nos nomes dias da semana 
+        navLinks: true,
+
+        //possibilita clicar e arrastar em varios dias para poder selecionar e criar eventos
+        selectable: true,
+
+        //mostra visualemnte os dias que estãos endo selecionados
+        selectMirror: true,
+
+        //editar o modo de arastar para mudar data de evento
+        editable: true, 
+
+        //limite de eventos por dia
+        dayMaxEvents: true,
+
+        //READ
+        events: API_BASE_URL,
+
+        //CREATE (Criação de um novo evento via POST)
+        select: function (arg) {
+            var title = prompt('Título do Novo Evento:');
+            
+            if (title) {
+                //Prepara o objeto do novo evento
+                const newEvent = {
+                    title: title,
+                    start: arg.startStr, // Data de início formatada
+                    end: arg.endStr || null, 
+                    // O ID será gerado pelo seu servidor
+                };
+
+                //Envia via POST para o servidor
+                fetch(API_BASE_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(newEvent)
+                })
+                .then(response => {
+                    if (!response.ok) throw new Error('Falha na criação do evento.');
+                    return response.json();
+                })
+                .then(savedEvent => {
+                    //Adiciona o evento ao calendário usando o ID retornado pelo servidor
+                    calendar.addEvent(savedEvent);
+                    alert(`Evento "${savedEvent.title}" criado e salvo!`);
+                })
+                .catch(error => {
+                    console.error('Erro ao salvar o evento:', error);
+                    alert('Erro ao tentar salvar o evento na API.');
+                });
+            }
+            calendar.unselect();
+        },
+
+        //DELETE (Exclusão de um evento via DELETE)
+        eventClick: function (arg) {
+            if (confirm(`Tem certeza que deseja excluir o evento: "${arg.event.title}"?`)) {
+                
+                const eventId = arg.event.id;
+
+                //Envia requisição DELETE para a API usando o ID
+                fetch(`${API_BASE_URL}/${eventId}`, {
+                    method: 'DELETE'
+                })
+                .then(response => {
+                    if (response.ok) {
+                        //Remove da interface se a API confirmar a exclusão
+                        arg.event.remove();
+                        alert('Evento excluído com sucesso!');
+                    } else {
+                        throw new Error('Falha na exclusão do evento.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao excluir o evento:', error);
+                    alert('Erro ao tentar excluir o evento na API.');
+                });
+            }
+        },
+
+        // 📝 UPDATE (Atualização via PUT/PATCH quando o evento é arrastado)
+        eventDrop: function(info) {
+            const event = info.event;
+            
+            //Prepara os dados atualizados
+            const updatedEvent = {
+                id: event.id,
+                title: event.title,
+                start: event.startStr,
+                end: event.endStr || null,
+                allDay: event.allDay
+            };
+
+            //Envia PUT/PATCH para a API (substitui o recurso inteiro)
+            fetch(`${API_BASE_URL}/${event.id}`, {
+                method: 'PUT', // Ou 'PATCH' se sua API suportar
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(updatedEvent)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    alert('Erro ao atualizar o evento na API. Desfazendo movimento.');
+                    info.revert(); // Desfaz o movimento na interface
+                }
+            })
+            .catch(error => {
+                console.error('Erro de rede ao atualizar:', error);
+                alert('Erro de rede ao tentar atualizar o evento.');
+                info.revert(); // Desfaz o movimento na interface
+            });
+        },
+        
+        //UPDATE (Atualização via PUT/PATCH quando o evento é redimensionado)
+        eventResize: function(info) {
+            // A lógica de redimensionamento é idêntica à de arrastar, pois só muda 'start' e/ou 'end'
+            // Reutilizamos o mesmo código de PUT/PATCH da função eventDrop
+            this.eventDrop(info);
+        }
+
+    });
+
+    calendar.render();
+});
+
 document.addEventListener('DOMContentLoaded', (event) => {
-    // 1. Tenta recuperar o conteúdo armazenado
+    //Tenta recuperar o conteúdo armazenado
     const conteudoHTML = localStorage.getItem('conteudoParaExibir');
     const mainConteudo = document.getElementById('conteudo-pag');
 
     if (conteudoHTML && mainConteudo) {
-        // 2. Injeta o HTML recuperado no elemento principal
+        //Injeta o HTML recuperado no elemento principal
         mainConteudo.innerHTML = conteudoHTML;
 
-        // 3. Opcional: Limpa o localStorage para que o conteúdo não persista em outras navegações
+        //Opcional: Limpa o localStorage para que o conteúdo não persista em outras navegações
         localStorage.removeItem('conteudoParaExibir');
     } else if (mainConteudo) {
         // Exibe uma mensagem de erro ou redireciona de volta se o conteúdo não for encontrado
@@ -229,3 +377,4 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 
 document.getElementById("radio-1").checked = true;
+

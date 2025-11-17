@@ -50,5 +50,31 @@
       "tituloConteudo2": "As Supernovas e a Reciclagem de Elementos",
       "conteudo2": "As Supernovas representam o fim espetacular e violento da vida das estrelas mais massivas, sendo o evento mais energético do universo. Quando uma estrela massiva esgota seu combustível de fusão nuclear, ela não consegue mais sustentar sua estrutura contra a gravidade. Seu núcleo colapsa em uma fração de segundo, ricocheteando e explodindo as camadas externas da estrela em uma explosão de luz que pode ofuscar galáxias inteiras por um breve período. Essas explosões são cruciais para a existência da vida, pois são o motor de reciclagem cósmica. As supernovas dispersam por todo o espaço interestelar todos os elementos pesados forjados dentro da estrela – incluindo carbono, oxigênio, silício e ferro. Esses elementos se misturam ao gás e à poeira, tornando-se os ingredientes essenciais para a formação de novas gerações de estrelas, planetas rochosos e, o mais importante, dos compostos que nos formam."
     }
+  ],
+  "eventos": [
+    {
+      "title": "All Day Event",
+      "start": "2025-11-01",
+      "end": "2025-11-19",
+      "id": 0
+    },
+    {
+      "title": "Long Event",
+      "start": "2025-11-17",
+      "end": "2025-11-19",
+      "id": 1
+    },
+    {
+      "title": "Conference",
+      "start": "2025-11-11",
+      "end": "2025-12-13",
+      "id": 2
+    },
+    {
+      "title": "teste",
+      "start": "2025-10-27",
+      "end": "2025-10-28",
+      "id": 3
+    }
   ]
 }
