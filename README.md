@@ -9,15 +9,19 @@ Sugerimos o uso das seguintes ferramentas acessíveis: [FullCalendar](https://fu
 
 ## Informações do trabalho
 
-- Nome:
-- Matricula:
-- Proposta de projeto escolhida:
-- Breve descrição sobre seu projeto:
+- Nome: Charles Henrique de Paula Santos
+- Matricula: 901364
+- Proposta de projeto escolhida: All universo(bolog sobre o universo)
+- Breve descrição sobre seu projeto: um blog com informaçoes sobre o unvierso e tudo sobre o espaço.
 
 **Print da tela com a implementação**
 
-<< Coloque aqui uma breve explicação da implementação feita nessa etapa>>
+Implementado um calendario na pagina eventos com a possibilidade de ser criado eventos sobre o tema do site que é universo e espaço em geral.
 
-<<  COLOQUE A IMAGEM TELA 1 AQUI >>
+![calendario sem dados](/public/assets/img/prints/calendario.PNG)
 
-<<  COLOQUE A IMAGEM TELA 2 AQUI >>
+![calendario com opção de criação de novo evento](/public/assets/img/prints/calendario_creat.PNG)
+
+![calendario com opção de leitura de dados do servidor](/public/assets/img/prints/calendario-read.PNG)
+
+![calendario com a opção de deletar evento](/public/assets/img/prints/calendario_delete.PNG)

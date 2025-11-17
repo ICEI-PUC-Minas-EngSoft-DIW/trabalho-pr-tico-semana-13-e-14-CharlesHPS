@@ -52,29 +52,6 @@
     }
   ],
   "eventos": [
-    {
-      "title": "All Day Event",
-      "start": "2025-11-01",
-      "end": "2025-11-19",
-      "id": 0
-    },
-    {
-      "title": "Long Event",
-      "start": "2025-11-17",
-      "end": "2025-11-19",
-      "id": 1
-    },
-    {
-      "title": "Conference",
-      "start": "2025-11-11",
-      "end": "2025-12-13",
-      "id": 2
-    },
-    {
-      "title": "teste",
-      "start": "2025-10-27",
-      "end": "2025-10-28",
-      "id": 3
-    }
+    
   ]
 }
